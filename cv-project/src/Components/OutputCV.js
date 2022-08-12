@@ -2,12 +2,13 @@ import React from "react";
 import { Component } from 'react';
 import '../style.css'
 import image from '../images/sumin.jpeg';
+import OutputWorkHistory from './OutputCVwork.js'
 import { isContentEditable } from "@testing-library/user-event/dist/utils";
 
 class OutputCV extends Component {
     
     render() {
-        const { general, content } = this.props;
+        const { general, content, workHistoryList } = this.props;
 
         return (
             <div className="container-cv">
@@ -63,7 +64,7 @@ class OutputCV extends Component {
                     <div className="cv-content-work-history">
                         <h1>Work History</h1>
                     </div>
-
+                    <OutputWorkHistory workHistoryList = {workHistoryList}/>
                 </div>
 
             </div>

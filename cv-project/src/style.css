@@ -52,8 +52,8 @@ h4, h5, h6, p {
 }
 
 textarea[name="description"] {
-    height:400px;
-    max-width: 330px;
+    height: 200px;
+    width: 600px;
 }
 
 .container-cv {
