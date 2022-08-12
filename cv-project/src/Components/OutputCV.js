@@ -8,7 +8,7 @@ import { isContentEditable } from "@testing-library/user-event/dist/utils";
 class OutputCV extends Component {
     
     render() {
-        const { general, content, workHistoryList } = this.props;
+        const { general, content, workHistoryList, workHistoryTemplate } = this.props;
 
         return (
             <div className="container-cv">
@@ -64,7 +64,7 @@ class OutputCV extends Component {
                     <div className="cv-content-work-history">
                         <h1>Work History</h1>
                     </div>
-                    <OutputWorkHistory workHistoryList = {workHistoryList}/>
+                    <OutputWorkHistory workHistoryList = {workHistoryList} workHistoryTemplate = {workHistoryTemplate}/>
                 </div>
 
             </div>

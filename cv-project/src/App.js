@@ -68,7 +68,7 @@ class App extends Component {
     const { name, value } = e.target;
     this.setState(prevState => ({
       workHistoryTemplate: {
-        ...prevState.content,
+        ...prevState.workHistoryTemplate,
         [name]: value
       }
     }))
@@ -80,7 +80,7 @@ class App extends Component {
       workHistoryListInput: this.state.workHistoryListInput.concat(this.state.workHistoryTemplate),
       workHistoryList: this.state.workHistoryList.concat(this.state.workHistoryTemplate),
       workHistoryTemplate: {
-        ...prevState.content,
+        ...prevState.workHistoryTemplate
       }
     }))
     console.log(this.state.workHistoryList)

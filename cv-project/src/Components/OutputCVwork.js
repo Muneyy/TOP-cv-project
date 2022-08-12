@@ -4,18 +4,20 @@ import '../style.css';
 
 class OutputWorkHistory extends Component {
     render() {
-        const { workHistoryList } = this.props;
+        const { workHistoryList, workHistoryTemplate } = this.props;
         return (
             <div className="work-history">
                 {workHistoryList.map((task) => {
                     return (
                     <div className="work-history-content">
                         <h1>{task.title}</h1>
-                        <h3>{task.company}</h3>
+                        <h2>{task.company}</h2>
                         <h3>{task.address}</h3>
-                        <h3>{task.task1}</h3>
-                        <h3>{task.task2}</h3>
-                        <h3>{task.task3}</h3>
+                        <ul>
+                            <li>{task.task1}</li>
+                            <li>{task.task2}</li>
+                            <li>{task.task3}</li>
+                        </ul>
                     </div>
                     )
                 })}
