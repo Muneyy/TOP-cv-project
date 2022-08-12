@@ -67,7 +67,7 @@ class App extends Component {
   handleChangeForWorkHistoryTemplate = (e) => {
     const { name, value } = e.target;
     const newItems = [...this.state.workHistoryList];
-    newItems[0][name] = value;
+    newItems[newItems.length - 1][name] = value;
     this.setState({ workHistoryList:newItems });
     this.setState(prevState => ({
       workHistoryTemplate: {
