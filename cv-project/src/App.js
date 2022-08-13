@@ -4,6 +4,7 @@ import './style.css';
 import InputComponents from './Components/InputComponents';
 import OutputCV from './Components/OutputCV';
 import WorkHistory from './Components/InputWorkHistory';
+import uniqid from 'uniqid';
 import OutputWorkHistory from './Components/OutputCVwork';
 import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
 
@@ -33,7 +34,8 @@ class App extends Component {
         address: 'Seoul',
         task1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         task2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        task3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        task3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        id: uniqid(),
       },
       workHistoryList: [],
       workHistoryListInput: [],
@@ -64,19 +66,33 @@ class App extends Component {
     }))
   }
 
+  // this.setState({
+  //   tasks: this.state.tasks.filter(task => {
+  //     return task.id !== taskID;
+  //   })
+  // })
+
   handleChangeForWorkHistoryTemplate = (e) => {
     const { name, value } = e.target;
+
+    console.log(e.target.getAttribute('data-key'));
+    const key = e.target.getAttribute('data-key');
     const newItems = [...this.state.workHistoryList];
-    newItems[newItems.length - 1][name] = value;
-    this.setState({ workHistoryList:newItems });
+    // added logic to bind input form to corresponding output in CV
+    newItems.forEach(item => {
+      console.log(`This is item.id`);
+      console.log(item.id);
+      if (item.id === key) {
+        item[name] = value;
+      }
+    })
+    
+    this.setState({ workHistoryList: newItems });
+
     this.setState(prevState => ({
       workHistoryTemplate: {
         ...prevState.workHistoryTemplate,
       },
-      // workHistoryList: {
-      //   ...prevState.workHistoryList,
-      //   [prevState.workHistoryList[0].name]: value,
-    // },
     }))
   }
 
@@ -86,7 +102,8 @@ class App extends Component {
       workHistoryListInput: this.state.workHistoryListInput.concat(this.state.workHistoryTemplate),
       workHistoryList: this.state.workHistoryList.concat(this.state.workHistoryTemplate),
       workHistoryTemplate: {
-        ...prevState.workHistoryTemplate
+        ...prevState.workHistoryTemplate,
+        id: uniqid()
       }
     }))
     console.log(this.state.workHistoryList)

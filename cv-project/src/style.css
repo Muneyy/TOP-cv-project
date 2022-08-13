@@ -27,7 +27,7 @@ h4, h5, h6, p {
     flex-flow: column wrap;
     padding: 1.5rem;
     gap: 1.5rem;
-    padding-right: 15rem;
+    /* padding-right: 15rem; */
     /* margin-left: 1.5rem; */
     /* margin-right: 15rem; */
 }
