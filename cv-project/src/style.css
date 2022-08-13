@@ -11,11 +11,11 @@ ul {
 .content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .input-field {
-    background-color: antiquewhite;
+    background-color:whitesmoke;
 }
 
 .output-field {
@@ -164,4 +164,9 @@ textarea[name="description"] {
 
 .cv-content-work-history > h1 {
     border-bottom: 5px solid #002B5B;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
 }

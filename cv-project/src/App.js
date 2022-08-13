@@ -183,32 +183,35 @@ class App extends Component {
     const { general, content } = this.state;
 
     return (
-      <div className = "content-grid">
-        <div className = "input-field">
-          <InputComponents 
-            general = {general} 
-            handleChangeForGeneral = {this.handleChangeForGeneral} 
-            handleChangeForContent = {this.handleChangeForContent} 
-            contento = {content}
-          />
-          <WorkHistory
-            workHistoryListInput = {this.state.workHistoryListInput}
-            handleChangeForWorkHistoryTemplate = {this.handleChangeForWorkHistoryTemplate}
-          />
-          <button className='add-work-history' onClick={this.addWorkHistory}>Add Work History</button>
-          <button className='remove-work-history' onClick={this.removeWorkHistory}>Remove Work History</button>
-
-          <Education
-            educationList = {this.state.educationList}
-            handleChangeForEducationTemplate = {this.handleChangeForEducationTemplate}
-          />
-
-          <button className='add-education' onClick={this.addEducation}>Add Education</button>
-          <button className='remove-education' onClick={this.removeEducation}>Remove Education</button>
-          
+      <div className="overall-container">
+        <div className = "content-grid">
+          <div className = "input-field">
+            <InputComponents
+              general = {general}
+              handleChangeForGeneral = {this.handleChangeForGeneral}
+              handleChangeForContent = {this.handleChangeForContent}
+              contento = {content}
+            />
+            <WorkHistory
+              workHistoryListInput = {this.state.workHistoryListInput}
+              handleChangeForWorkHistoryTemplate = {this.handleChangeForWorkHistoryTemplate}
+            />
+            <button className='add-work-history' onClick={this.addWorkHistory}>Add Work History</button>
+            <button className='remove-work-history' onClick={this.removeWorkHistory}>Remove Work History</button>
+            <Education
+              educationList = {this.state.educationList}
+              handleChangeForEducationTemplate = {this.handleChangeForEducationTemplate}
+            />
+            <button className='add-education' onClick={this.addEducation}>Add Education</button>
+            <button className='remove-education' onClick={this.removeEducation}>Remove Education</button>
+        
+          </div>
+          <div className = "output-field">
+            <OutputCV general = {general} content = {content} workHistoryList = {this.state.workHistoryList} educationList = {this.state.educationList}/>
+          </div>
         </div>
-        <div className = "output-field">
-          <OutputCV general = {general} content = {content} workHistoryList = {this.state.workHistoryList} educationList = {this.state.educationList}/>
+        <div className='footer'>
+          <p>Copyright	&copy; 2022 Muney</p>
         </div>
       </div>
     )
