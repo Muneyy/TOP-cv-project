@@ -11,8 +11,10 @@ class OutputEducation extends Component {
                     return (
                     <div className="work-history-content">
                         <h1>{task.title}</h1>
-                        <h4>{task.school}</h4>
-                        <p>{task.tasks}</p>
+                        <ul>
+                            <h4>{task.school}</h4>
+                            <p>{task.tasks}</p>
+                        </ul>
                     </div>
                     )
                 })}

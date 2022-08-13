@@ -3,6 +3,11 @@ h4, h5, h6, p {
     margin: 0;
 }
 
+ul {
+    list-style-type: none;
+    margin: 5px 0;
+}
+
 .content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -36,7 +41,7 @@ h4, h5, h6, p {
     display: flex;
     gap: 36px;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .input-block {
@@ -48,7 +53,7 @@ h4, h5, h6, p {
 .input-form > .input-block > input {
     padding: 8px 5px;
     font-size: 1.1rem;
-    width: 20rem;
+    width: 15rem;
 }
 
 textarea[name="description"] {
@@ -137,6 +142,8 @@ textarea[name="description"] {
     flex-direction: column;
     gap: 16px;
 }
+
+
 
 .skills-section-details-container > ul {
     padding: 0 35px;
