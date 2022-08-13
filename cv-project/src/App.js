@@ -109,6 +109,17 @@ class App extends Component {
     console.log(this.state.workHistoryList)
   }
 
+  removeWorkHistory = (e) => {
+    e.preventDefault();
+    const newList = [...this.state.workHistoryList];
+    const newListInput = [...this.state.workHistoryListInput];
+    newList.pop();
+    newListInput.pop();
+    this.setState({ workHistoryList: newList});
+    this.setState({ workHistoryListInput: newListInput})
+
+  }
+
   onSubmitWorkHistory = (e) => {
     e.preventDefault();
     this.setState(prevState => ({
@@ -136,6 +147,8 @@ class App extends Component {
             handleChangeForWorkHistoryTemplate = {this.handleChangeForWorkHistoryTemplate}
           />
           <button className='add-work-history' onClick={this.addWorkHistory}>Add Work History</button>
+          <button className='remove-work-history' onClick={this.removeWorkHistory}>Remove Work History</button>
+          
         </div>
         <div className = "output-field">
           <OutputCV general = {general} content = {content} workHistoryList = {this.state.workHistoryList}/>
