@@ -3,12 +3,13 @@ import { Component } from 'react';
 import '../style.css'
 import image from '../images/sumin.jpeg';
 import OutputWorkHistory from './OutputCVwork.js'
+import OutputEducation from "./OutputCVeducation";
 import { isContentEditable } from "@testing-library/user-event/dist/utils";
 
 class OutputCV extends Component {
     
     render() {
-        const { general, content, workHistoryList, workHistoryTemplate } = this.props;
+        const { general, content, workHistoryList, educationList } = this.props;
 
         return (
             <div className="container-cv">
@@ -64,7 +65,14 @@ class OutputCV extends Component {
                     <div className="cv-content-work-history">
                         <h1>Work History</h1>
                     </div>
-                    <OutputWorkHistory workHistoryList = {workHistoryList} workHistoryTemplate = {workHistoryTemplate}/>
+                    <OutputWorkHistory workHistoryList = {workHistoryList}/>
+                    {/* LAZY CODE, USED SAME CLASS FOR CONTENT WORK HISTORY ,
+                        OR NOT LAZY JUST NEED TO USE CLASSES BETTER.
+                        USE A MORE TOP-DOWN APPROACH INSTEAD OF SPECIFYING EVERYTHING*/}
+                    <div className="cv-content-work-history">
+                        <h1>Education</h1>
+                    </div>
+                    <OutputEducation educationList = {educationList}/>
                 </div>
 
             </div>

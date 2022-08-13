@@ -4,7 +4,7 @@ import '../style.css';
 
 class OutputWorkHistory extends Component {
     render() {
-        const { workHistoryList, workHistoryTemplate } = this.props;
+        const { workHistoryList } = this.props;
         return (
             <div className="work-history">
                 {workHistoryList.map((task) => {

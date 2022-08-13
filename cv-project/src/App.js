@@ -5,6 +5,7 @@ import InputComponents from './Components/InputComponents';
 import OutputCV from './Components/OutputCV';
 import WorkHistory from './Components/InputWorkHistory';
 import uniqid from 'uniqid';
+import Education from './Components/InputEducation';
 import OutputWorkHistory from './Components/OutputCVwork';
 import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
 
@@ -39,6 +40,13 @@ class App extends Component {
       },
       workHistoryList: [],
       workHistoryListInput: [],
+      educationTemplate: {
+        title: 'MS in Computer Science, Major in Bug-Making',
+        school: 'International State College of The Philippines',
+        tasks: 'Deep Reinforcement Learning, Cloud Computing, Lorem Ipsum Algorithm',
+        id: uniqid()
+      },
+      educationList: [],
     };
 
     this.handleChangeForGeneral = this.handleChangeForGeneral.bind(this);
@@ -96,6 +104,30 @@ class App extends Component {
     }))
   }
 
+  handleChangeForEducationTemplate = (e) => {
+    const { name, value } = e.target;
+
+    console.log(e.target.getAttribute('data-key'));
+    const key = e.target.getAttribute('data-key');
+    const newItems = [...this.state.educationList];
+    // added logic to bind input form to corresponding output in CV
+    newItems.forEach(item => {
+      console.log(`This is item.id`);
+      console.log(item.id);
+      if (item.id === key) {
+        item[name] = value;
+      }
+    })
+    
+    this.setState({ educationList: newItems });
+
+    this.setState(prevState => ({
+      educationTemplate: {
+        ...prevState.educationTemplate,
+      },
+    }))
+  }
+
   addWorkHistory = (e) => {
     e.preventDefault();
     this.setState(prevState => ({
@@ -116,8 +148,25 @@ class App extends Component {
     newList.pop();
     newListInput.pop();
     this.setState({ workHistoryList: newList});
-    this.setState({ workHistoryListInput: newListInput})
+    this.setState({ workHistoryListInput: newListInput});
+  }
 
+  addEducation = (e) => {
+    e.preventDefault();
+    this.setState(prevState => ({
+      educationList: this.state.educationList.concat(this.state.educationTemplate),
+      educationTemplate: {
+        ...prevState.educationTemplate,
+        id: uniqid()
+      }
+    }))
+  }
+
+  removeEducation = (e) => {
+    e.preventDefault();
+    const newList = [...this.state.educationList];
+    newList.pop();
+    this.setState({ educationList: newList});
   }
 
   onSubmitWorkHistory = (e) => {
@@ -148,10 +197,18 @@ class App extends Component {
           />
           <button className='add-work-history' onClick={this.addWorkHistory}>Add Work History</button>
           <button className='remove-work-history' onClick={this.removeWorkHistory}>Remove Work History</button>
+
+          <Education
+            educationList = {this.state.educationList}
+            handleChangeForEducationTemplate = {this.handleChangeForEducationTemplate}
+          />
+
+          <button className='add-education' onClick={this.addEducation}>Add Education</button>
+          <button className='remove-education' onClick={this.removeEducation}>Remove Education</button>
           
         </div>
         <div className = "output-field">
-          <OutputCV general = {general} content = {content} workHistoryList = {this.state.workHistoryList}/>
+          <OutputCV general = {general} content = {content} workHistoryList = {this.state.workHistoryList} educationList = {this.state.educationList}/>
         </div>
       </div>
     )
