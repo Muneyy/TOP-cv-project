@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/TOP-cv-project/static/css/main.f51ef5af.css",
+    "main.js": "/TOP-cv-project/static/js/main.ea37a067.js",
+    "static/js/787.34a20539.chunk.js": "/TOP-cv-project/static/js/787.34a20539.chunk.js",
+    "static/media/sumin.jpeg": "/TOP-cv-project/static/media/sumin.4d071a3f04c63f707f54.jpeg",
+    "index.html": "/TOP-cv-project/index.html",
+    "main.f51ef5af.css.map": "/TOP-cv-project/static/css/main.f51ef5af.css.map",
+    "main.ea37a067.js.map": "/TOP-cv-project/static/js/main.ea37a067.js.map",
+    "787.34a20539.chunk.js.map": "/TOP-cv-project/static/js/787.34a20539.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f51ef5af.css",
+    "static/js/main.ea37a067.js"
+  ]
+}
