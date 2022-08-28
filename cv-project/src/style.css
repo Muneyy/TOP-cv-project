@@ -10,7 +10,7 @@ ul {
 
 .content-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 40% 1fr;
     /* height: 100vh; */
 }
 
@@ -32,6 +32,8 @@ ul {
     flex-flow: column wrap;
     padding: 1.5rem;
     gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
     /* padding-right: 15rem; */
     /* margin-left: 1.5rem; */
     /* margin-right: 15rem; */
@@ -39,6 +41,7 @@ ul {
 
 .row-container {
     display: flex;
+    flex-flow: row wrap;
     gap: 36px;
     align-items: center;
     /* justify-content: space-between; */
@@ -58,7 +61,7 @@ ul {
 
 textarea[name="description"] {
     height: 200px;
-    width: 600px;
+    width: 550px;
 }
 
 .container-cv {
@@ -86,6 +89,7 @@ textarea[name="description"] {
     height: auto;
     /* margin-bottom: 10px; */
     padding: 16px;
+    background-size: contain;
 }
 
 .introduction-section {
@@ -169,4 +173,15 @@ textarea[name="description"] {
 .footer {
     display: flex;
     justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.button-container > button {
+    padding: 8px 16px;
+    width: 280px;
 }

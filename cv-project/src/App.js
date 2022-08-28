@@ -196,14 +196,18 @@ class App extends Component {
               workHistoryListInput = {this.state.workHistoryListInput}
               handleChangeForWorkHistoryTemplate = {this.handleChangeForWorkHistoryTemplate}
             />
-            <button className='add-work-history' onClick={this.addWorkHistory}>Add Work History</button>
-            <button className='remove-work-history' onClick={this.removeWorkHistory}>Remove Work History</button>
+            <div className="button-container">
+              <button className='add-work-history' onClick={this.addWorkHistory}>Add Work History</button>
+              <button className='remove-work-history' onClick={this.removeWorkHistory}>Remove Work History</button>
+            </div>
             <Education
               educationList = {this.state.educationList}
               handleChangeForEducationTemplate = {this.handleChangeForEducationTemplate}
             />
-            <button className='add-education' onClick={this.addEducation}>Add Education</button>
-            <button className='remove-education' onClick={this.removeEducation}>Remove Education</button>
+            <div className="button-container">
+              <button className='add-education' onClick={this.addEducation}>Add Education</button>
+              <button className='remove-education' onClick={this.removeEducation}>Remove Education</button>
+            </div>
         
           </div>
           <div className = "output-field">
